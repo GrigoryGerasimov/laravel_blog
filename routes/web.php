@@ -12,11 +12,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\MainController@index')->name('main');
+Route::get('/about', 'App\Http\Controllers\AboutController@index')->name('about');
 
-Route::get('/posts', 'App\Http\Controllers\PostController@getPosts')->name('posts.index');
+Route::get('/posts', 'App\Http\Controllers\PostController@index')->name('posts.list');
 Route::get('/posts/create', 'App\Http\Controllers\PostController@createPost')->name('posts.create');
 Route::get('/posts/update', 'App\Http\Controllers\PostController@updatePost')->name('posts.update');
 Route::get('/posts/delete', 'App\Http\Controllers\PostController@deletePost')->name('posts.delete');
