@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\View;
 
-class MainController extends Controller
+class ContactController extends Controller
 {
     public function index(): Application|View
     {
-        return view('main');
+        return view('contacts');
     }
 }

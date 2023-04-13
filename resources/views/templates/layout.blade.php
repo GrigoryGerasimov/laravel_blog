@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class='navbar navbar-expand-lg navbar-dark bg-dark px-5'>
-    <a class='navbar-brand' href=''>BLOG</a>
+    <a class='navbar-brand me-5' href={{ route('main') }}>BLOG</a>
     <div class='collapse navbar-collapse'>
         <ul class='navbar-nav'>
             <li class='nav-item'>
@@ -20,20 +20,16 @@
                 <a class='nav-link' href={{ route('about') }}>About</a>
             </li>
             <li class='nav-item'>
-                <a class='nav-link' href={{ route('posts.list') }}>Posts</a>
+                <a class='nav-link' href={{ route('post.index') }}>Posts</a>
             </li>
             <li class='nav-item'>
-                <a class='nav-link' href={{ route('posts.create') }}>Create Post</a>
-            </li>
-            <li class='nav-item'>
-                <a class='nav-link' href={{ route('posts.update') }}>Update Post</a>
-            </li>
-            <li class='nav-item'>
-                <a class='nav-link' href={{ route('posts.delete') }}>Delete Post</a>
+                <a class='nav-link' href={{ route('contacts') }}>Contacts</a>
             </li>
         </ul>
     </div>
 </div>
+<div class='container-fluid p-5'>
 @yield('content')
+</div>
 </body>
 </html>

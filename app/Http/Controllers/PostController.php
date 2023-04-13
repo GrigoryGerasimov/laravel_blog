@@ -3,77 +3,60 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(): Application|View
     {
         $postsList = Post::all();
 
-        return view('posts.list', compact('postsList'));
+        return view('post.index', compact('postsList'));
     }
 
-    public function createPost()
+    public function create(): Application|View
     {
-        $initPosts = [
-            [
-                'title' => 'My first blog post',
-                'author' => 'anonymous',
-                'content' => 'Lorem ipsum...',
-                'likes' => 100,
-                'is_published' => 0
-            ],
-            [
-                'title' => 'Second blog',
-                'author' => 'John Doe',
-                'content' => 'Test content to Blog 2',
-                'likes' => 0,
-                'is_published' => 1
-            ],
-            [
-                'title' => 'Third blog',
-                'author' => 'Jane Doe',
-                'content' => 'Test content to Blog 3',
-                'likes' => 50000,
-                'is_published' => 1
-            ]
-        ];
+        return view('post.create');
+    }
 
-        foreach($initPosts as $initPost) {
-            $result[] = json_encode(Post::firstOrCreate($initPost));
-        }
-
-        return view('posts.create', [
-            'result' => $result
+    public function store(): Application|RedirectResponse|Redirector
+    {
+        $request = request()->validate([
+            'title' => 'string',
+            'author' => 'string',
+            'image' => 'string',
+            'content' => 'string'
         ]);
+
+        $request['description'] = substr($request['content'], 0, 50);
+
+        Post::create($request);
+
+        return redirect(route('post.index'), 201);
     }
 
-    public function updatePost()
+    public function show(Post $post): Application|View
     {
-        $firstPost = Post::all()->first();
-        $lastPost = Post::all()->last();
-
-        $updatedFirstPost = Post::updateOrCreate(['id' => $firstPost->id], ['title' => 'upd title for first post']);
-        $updatedLastPost = Post::updateOrCreate(['id' => $lastPost->id], ['title' => 'upd title for last post']);
-
-        return view('posts.update', compact('updatedFirstPost', 'updatedLastPost'));
+        return view('post.show', compact('post'));
     }
 
-    public function deletePost()
+    public function edit(Post $post): Application|RedirectResponse|Redirector
     {
-        $postToDelete = Post::where('likes', 100)->first();
-        $postId = $postToDelete->id;
 
-        $deleted = $postToDelete->delete();
-
-        return view('posts.delete', compact('deleted', 'postId'));
     }
 
-    public function restorePost()
+    public function deletePost(): Application|View
     {
-        $deletedPost = Post::withTrashed()->whereNotNull('deleted_at');
+    }
+
+    public function restore(Post $post): void
+    {
+        $deletedPost = Post::withTrashed()->find($post->id);
 
         $deletedPost->restore();
     }
