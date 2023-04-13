@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\View;
 class AboutController extends Controller
 {
-    public function index()
+    public function index(): Application|View
     {
         return view('about');
     }

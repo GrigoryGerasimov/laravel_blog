@@ -15,10 +15,13 @@ return new class extends Migration
             $table->id();
             $table->text('title')->nullable(false);
             $table->tinyText('author')->nullable(false);
-            $table->longText('content');
-            $table->unsignedBigInteger('likes');
-            $table->tinyInteger('is_published')->nullable(false);
+            $table->string('image')->nullable();
+            $table->longText('content')->nullable(false);
+            $table->string('description')->nullable();
+            $table->unsignedBigInteger('likes')->nullable();
+            $table->tinyInteger('is_published')->nullable();
             $table->timestamps();
+            $table->softDeletes()->nullable();
         });
     }
 
