@@ -8,7 +8,7 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function getPosts()
+    public function index()
     {
         $postsList = Post::all();
 
