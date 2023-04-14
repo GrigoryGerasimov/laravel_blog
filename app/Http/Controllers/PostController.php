@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
-use App\Models\{Post, Category};
+use App\Models\{Post, Category, Tag};
 
 class PostController extends Controller
 {
@@ -21,7 +21,10 @@ class PostController extends Controller
 
     public function create(): Application|View
     {
-        return view('post.create');
+        $categoriesList = Category::all();
+        $tagsList = Tag::all();
+
+        return view('post.create', compact('categoriesList', 'tagsList'));
     }
 
     public function store(): Application|RedirectResponse|Redirector
@@ -30,12 +33,18 @@ class PostController extends Controller
             'title' => 'string',
             'author' => 'string',
             'image' => 'string',
-            'content' => 'string'
+            'content' => 'string',
+            'category_id' => 'string',
+            'tags' => 'array'
         ]);
 
-        $request['description'] = substr($request['content'], 0, 50);
+        $tagsData = $request['tags'];
+        unset($request['tags']);
 
-        Post::create($request);
+        $request['description'] = substr($request['content'], 0, 200);
+
+        $createdNewPost = Post::create($request);
+        $createdNewPost->tags()->attach($tagsData);
 
         return redirect(route('post.index'), 201);
     }
@@ -47,7 +56,10 @@ class PostController extends Controller
 
     public function edit(Post $post): Application|View
     {
-        return view('post.edit', compact('post'));
+        $categoriesList = Category::all();
+        $tagsList = Tag::all();
+
+        return view('post.edit', compact('post', 'categoriesList', 'tagsList'));
     }
 
     public function update(Post $post): Application|RedirectResponse|Redirector
@@ -56,9 +68,15 @@ class PostController extends Controller
             'title' => 'string',
             'author' => 'string',
             'image' => 'string',
-            'content' => 'string'
+            'content' => 'string',
+            'category_id' => 'string',
+            'tags' => 'array'
         ]);
 
+        $tagsData = $request['tags'];
+        unset($request['tags']);
+
+        $post->tags()->sync($tagsData);
         $post->update($request);
 
         return redirect()->route('post.show', $post);
@@ -66,7 +84,10 @@ class PostController extends Controller
 
     public function delete(Post $post): Application|View
     {
-        return view('post.delete', compact('post'));
+        $categoriesList = Category::all();
+        $tagsList = Tag::all();
+
+        return view('post.delete', compact('post', 'categoriesList', 'tagsList'));
     }
 
     public function destroy(Post $post): Application|RedirectResponse|Redirector

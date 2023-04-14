@@ -15,6 +15,22 @@
                 <label class='form-label col-1' for='image'>Image</label>
                 <input class='form-input col-11 border-0 border-bottom' id='image' name='image' placeholder='URL'/>
             </div>
+            <div class='input-group mb-3'>
+                <label class='form-label col-1' for='category'>Category</label>
+                <select class='form-input col-11 border-0 border-bottom' id='category' name='category_id'>
+                    @foreach($categoriesList as $category)
+                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class='input-group mb-3'>
+                <label class='form-label col-1' for='tags'>Tags</label>
+                <select multiple class='form-input col-11 border-0 border-bottom' id='tags' name='tags[]'>
+                    @foreach($tagsList as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->title }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class='input-group mb-3 h-100'>
                 <label class='form-label col-1' for='content'>Content</label>
                 <textarea class='form-input col-11 h-auto border-0 border-bottom' id='content' name='content' placeholder='Your message...'></textarea>

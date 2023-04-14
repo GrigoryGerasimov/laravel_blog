@@ -8,6 +8,11 @@
             <h6 class="card-title mt-4">{{ $post->author }}</h6>
             <p class="card-text my-5">{{ $post->content }}</p>
             <p class="card-text my-5">Category: {{ $post->category->title }}</p>
+            <p class="card-text my-5">Tags:
+                @foreach ($post->tags as $postTag)
+                    #{{ $postTag->title }}
+                @endforeach
+            </p>
             <p class="card-text w-100 d-flex flex-column align-items-end">
                 <small class="text-muted">Created at {{ $post->created_at }}</small>
                 <small class="text-muted mt-2">Last updated {{ $post->updated_at }}</small>
