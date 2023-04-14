@@ -30,12 +30,12 @@ class PostController extends Controller
     public function store(): Application|RedirectResponse|Redirector
     {
         $request = request()->validate([
-            'title' => 'string',
-            'author' => 'string',
-            'image' => 'string',
-            'content' => 'string',
-            'category_id' => 'string',
-            'tags' => 'array'
+            'title' => 'required|string',
+            'author' => 'required|string',
+            'image' => 'required|string',
+            'content' => 'required|string',
+            'category_id' => 'required|string',
+            'tags' => 'required|array'
         ]);
 
         $tagsData = $request['tags'];
@@ -65,12 +65,12 @@ class PostController extends Controller
     public function update(Post $post): Application|RedirectResponse|Redirector
     {
         $request = request()->validate([
-            'title' => 'string',
-            'author' => 'string',
-            'image' => 'string',
-            'content' => 'string',
-            'category_id' => 'string',
-            'tags' => 'array'
+            'title' => 'required|string',
+            'author' => 'required|string',
+            'image' => 'required|string',
+            'content' => 'required|string',
+            'category_id' => 'required|string',
+            'tags' => 'required|array'
         ]);
 
         $tagsData = $request['tags'];
