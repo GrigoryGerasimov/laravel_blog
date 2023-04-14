@@ -20,6 +20,7 @@
                                 <p class="card-subtitle">{{ $post->author }}</p>
                                 <a class="card-link link-success my-5 d-block" href="{{ route('post.show', $post) }}">{{ $post->description }}...</a>
                                 <p class="card-text my-5">Likes: {{ $post->likes }}</p>
+                                <p class="card-text my-5">Category: {{ $post->category->title }}</p>
                                 <p class="card-text mt-5"><small class="text-muted">Last updated {{ $post->updated_at }}</small></p>
                             </div>
                         </div>
