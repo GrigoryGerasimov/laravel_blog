@@ -22,9 +22,9 @@ Route::post('/posts', 'App\Http\Controllers\PostController@store')->name('post.s
 
 Route::get('/post/{post}', 'App\Http\Controllers\PostController@show')->name('post.show');
 
-Route::get('/post/{post}/edit}', 'App\Http\Controllers\PostController@edit')->name('post.edit');
+Route::get('/post/{post}/edit', 'App\Http\Controllers\PostController@edit')->name('post.edit');
+Route::patch('/post/{post}', 'App\Http\Controllers\PostController@update')->name('post.update');
 
-
-
-Route::get('/post/delete', 'App\Http\Controllers\PostController@deletePost')->name('post.delete');
+Route::get('/post/{post}/delete', 'App\Http\Controllers\PostController@delete')->name('post.delete');
+Route::delete('/post/{post}', 'App\Http\Controllers\PostController@destroy')->name('post.destroy');
 Route::get('/post/{post}/restore', 'App\Http\Controllers\PostController@restore');

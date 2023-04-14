@@ -45,13 +45,35 @@ class PostController extends Controller
         return view('post.show', compact('post'));
     }
 
-    public function edit(Post $post): Application|RedirectResponse|Redirector
+    public function edit(Post $post): Application|View
     {
-
+        return view('post.edit', compact('post'));
     }
 
-    public function deletePost(): Application|View
+    public function update(Post $post): Application|RedirectResponse|Redirector
     {
+        $request = request()->validate([
+            'title' => 'string',
+            'author' => 'string',
+            'image' => 'string',
+            'content' => 'string'
+        ]);
+
+        $post->update($request);
+
+        return redirect()->route('post.show', $post);
+    }
+
+    public function delete(Post $post): Application|View
+    {
+        return view('post.delete', compact('post'));
+    }
+
+    public function destroy(Post $post): Application|RedirectResponse|Redirector
+    {
+        $post->delete();
+
+        return redirect()->route('post.index');
     }
 
     public function restore(Post $post): void
