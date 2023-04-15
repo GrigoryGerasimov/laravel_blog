@@ -9,7 +9,7 @@
         <div class="d-flex flex-row flex-wrap justify-content-between">
             @foreach ($postsList as $post)
                 <div class="card mb-5" style="width: 48%">
-                    <div class="row g-0">
+                    <div class="row g-0 h-100">
                         <div class="col-md-5">
                             <img src="{{ $post->image }}" class="img-fluid rounded-start h-100" alt="post {{ $post->id }} photo">
                         </div>
@@ -33,5 +33,6 @@
                 </div>
             @endforeach
         </div>
+        {{ $postsList->links() }}
     </div>
 @endsection

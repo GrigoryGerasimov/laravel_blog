@@ -13,7 +13,7 @@ class IndexController extends Controller
 {
     public function __invoke(): Application|View
     {
-        $postsList = Post::all();
+        $postsList = Post::paginate(10);
 
         return view('post.index', compact('postsList'));
     }
