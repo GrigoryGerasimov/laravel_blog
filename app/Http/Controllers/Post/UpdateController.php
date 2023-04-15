@@ -10,18 +10,13 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Post\UpdateRequest;
+use App\Http\Services\PostService;
 
 class UpdateController extends Controller
 {
     public function __invoke(Post $post, UpdateRequest $request): Application|RedirectResponse|Redirector
     {
-        $requestData = $request->validated();
-
-        $tagsData = $request['tags'];
-        unset($request['tags']);
-
-        $post->tags()->sync($tagsData);
-        $post->update($requestData);
+        PostService::update($post, $request->validated());
 
         return redirect()->route('post.show', $post);
     }
