@@ -33,6 +33,6 @@
                 </div>
             @endforeach
         </div>
-        {{ $postsList->links() }}
+        {{ $postsList->withQueryString()->links() }}
     </div>
 @endsection
