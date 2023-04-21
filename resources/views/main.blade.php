@@ -1,6 +1,4 @@
 @extends('templates.layout')
 @section('content')
-    <div class='row'>
-        <div>Main Page</div>
-    </div>
+    <h4>Main Page</h4>
 @endsection
