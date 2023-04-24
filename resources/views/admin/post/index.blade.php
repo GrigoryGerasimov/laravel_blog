@@ -14,8 +14,8 @@
                                 <h5 class="card-title">{{ $post->title }}</h5>
                                 <hr/>
                                 <p class="card-subtitle">{{ $post->author }}</p>
-                                <a class="card-link link-success d-block my-3"
-                                   href="{{ route('post.show', $post) }}">{{ $post->description }}...</a>
+                                <a class="card-link d-block my-3" style="color:#ff8c00ff!important"
+                                   href="{{ route('admin.post.show', $post) }}">{{ $post->description }}...</a>
                                 <p class="card-text text-danger">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" style="width: 15px">
