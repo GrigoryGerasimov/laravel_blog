@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Http\{RedirectResponse};
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Post\StoreRequest;
 use App\Http\Services\PostService;

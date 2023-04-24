@@ -19,6 +19,8 @@ Route::get('/contacts', 'App\Http\Controllers\ContactController@index')->name('c
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function() {
     Route::group(['namespace' => 'Post'], function() {
         Route::get('/posts', 'IndexController')->name('admin.post.index');
+        Route::get('/post/create', 'CreateController')->name('admin.post.create');
+        Route::post('/post/store', 'StoreController')->name('admin.post.store');
     });
 });
 

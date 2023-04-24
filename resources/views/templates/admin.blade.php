@@ -12,7 +12,9 @@
 <div class="wrapper">
     @include('layouts.admin.navbar')
     @include('layouts.admin.sidebar')
-    @yield('admin-content')
+    <div class="content-wrapper p-5">
+        @yield('admin-content')
+    </div>
 </div>
 
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
