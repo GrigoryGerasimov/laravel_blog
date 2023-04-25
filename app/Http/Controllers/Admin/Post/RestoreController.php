@@ -10,12 +10,12 @@ use Illuminate\Routing\Redirector;
 
 class RestoreController extends Controller
 {
-    public function __invoke(Post $post): Application|RedirectResponse|Redirector
+    public function __invoke($postId): Application|RedirectResponse|Redirector
     {
-        $deletedPost = Post::withTrashed()->find($post->id);
+        $deletedPost = Post::withTrashed()->find($postId);
 
         $deletedPost->restore();
 
-        return redirect()->route('admin.post.show', $post);
+        return redirect()->route('admin.post.show', $deletedPost);
     }
 }

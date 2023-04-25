@@ -4,6 +4,9 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ route('main') }}" class="nav-link">Main</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('admin.post.create') }}" class="nav-link">Create New Post</a>
         </li>
     </ul>
