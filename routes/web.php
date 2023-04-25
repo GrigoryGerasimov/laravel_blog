@@ -41,3 +41,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Post'], function() {
     Route::delete('/post/{post}', 'DestroyController')->name('post.destroy');
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
