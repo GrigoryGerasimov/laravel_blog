@@ -21,6 +21,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/posts', 'IndexController')->name('admin.post.index');
         Route::get('/post/create', 'CreateController')->name('admin.post.create');
         Route::post('/post/store', 'StoreController')->name('admin.post.store');
+        Route::get('/post/{post}', 'ShowController')->name('admin.post.show');
+        Route::get('/post/{post}/edit', 'EditController')->name('admin.post.edit');
+        Route::patch('/post/{post}', 'UpdateController')->name('admin.post.update');
+        Route::get('/post/{post}/delete', 'DeleteController')->name('admin.post.delete');
+        Route::delete('/post/{post}', 'DestroyController')->name('admin.post.destroy');
+        //Route::get('/post/{post}/restore', 'RestoreController')->name('admin.post.restore');
     });
 });
 
@@ -33,6 +39,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Post'], function() {
     Route::patch('/post/{post}', 'UpdateController')->name('post.update');
     Route::get('/post/{post}/delete', 'DeleteController')->name('post.delete');
     Route::delete('/post/{post}', 'DestroyController')->name('post.destroy');
-    Route::get('/post/{post}/restore', 'RestoreController');
+    //Route::get('/post/{post}/restore', 'RestoreController');
 });
 
