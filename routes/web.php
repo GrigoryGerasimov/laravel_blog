@@ -16,7 +16,7 @@ Route::get('/', 'App\Http\Controllers\MainController@index')->name('main');
 Route::get('/about', 'App\Http\Controllers\AboutController@index')->name('about');
 Route::get('/contacts', 'App\Http\Controllers\ContactController@index')->name('contacts');
 
-Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function() {
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware'=>'admin'], function() {
     Route::group(['namespace' => 'Post'], function() {
         Route::get('/posts', 'IndexController')->name('admin.post.index');
         Route::get('/post/create', 'CreateController')->name('admin.post.create');
