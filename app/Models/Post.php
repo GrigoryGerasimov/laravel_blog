@@ -16,7 +16,6 @@ class Post extends Model
     use Filterable;
 
     protected $table = 'posts';
-
     protected $fillable = [
         'title',
         'author',

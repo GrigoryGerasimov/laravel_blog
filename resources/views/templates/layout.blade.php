@@ -31,9 +31,11 @@
             <li class='nav-item'>
                 <a class='nav-link' href={{ route('contacts') }}>Contacts</a>
             </li>
-            <li class='nav-item'>
-                <a class='nav-link' href={{ route('admin.post.index') }}>Admin</a>
-            </li>
+            @can('view', auth()->user())
+                <li class='nav-item'>
+                    <a class='nav-link' href={{ route('admin.post.index') }}>Admin</a>
+                </li>
+            @endcan
         </ul>
         <ul class="navbar-nav ms-auto">
             @guest
