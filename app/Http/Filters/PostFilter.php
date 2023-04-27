@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Builder;
 
 class PostFilter extends AbstractFilter
 {
-    const TITLE = 'title';
-    const AUTHOR = 'author';
-    const CATEGORY_ID = 'category_id';
+    public const TITLE = 'title';
+    public const AUTHOR = 'author';
+    public const CATEGORY_ID = 'category_id';
 
     public function getCallbacks(): array
     {
