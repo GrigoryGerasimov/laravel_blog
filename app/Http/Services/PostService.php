@@ -27,11 +27,13 @@ class PostService
         $createdNewPost->tags()->attach($tagsData);
     }
 
-    public static function update(Post $post, mixed $requestData): void
+    public static function update(Post $post, mixed $requestData): Post|null
     {
         $tagsData = self::pluckData($requestData, 'tags');
 
         $post->tags()->sync($tagsData);
         $post->update($requestData);
+
+        return $post->fresh();
     }
 }

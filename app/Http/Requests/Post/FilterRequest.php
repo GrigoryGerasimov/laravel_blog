@@ -16,7 +16,9 @@ class FilterRequest extends FormRequest
         return [
             'title' => 'string',
             'author' => 'string',
-            'category_id' => 'string'
+            'category_id' => 'string',
+            'page' => 'string',
+            'per_page' => 'string'
         ];
     }
 }
