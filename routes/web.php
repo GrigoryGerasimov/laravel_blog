@@ -13,7 +13,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
     Route::group(['namespace' => 'Post'], function() {
         Route::get('/posts', 'IndexController')->name('admin.post.index');
         Route::get('/post/create', 'CreateController')->name('admin.post.create');
-        Route::post('/post/store', 'StoreController')->name('admin.post.store');
+        Route::post('/posts', 'StoreController')->name('admin.post.store');
         Route::get('/post/{post}', 'ShowController')->name('admin.post.show');
         Route::get('/post/{post}/edit', 'EditController')->name('admin.post.edit');
         Route::patch('/post/{post}', 'UpdateController')->name('admin.post.update');
