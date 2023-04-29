@@ -1,7 +1,7 @@
 @extends('templates.layout')
 @section('content')
     <div class='row'>
-        <form class='form' action={{ route('post.store') }} method='POST'>
+        <form class='form' action="{{ route('post.store') }}" method='POST'>
             @csrf
             <div class='input-group mb-3'>
                 <label class='form-label col-1' for='title'>Title</label>
@@ -51,7 +51,7 @@
                 @enderror
             </div>
             <div class='btn-group mt-5 col-6 offset-3'>
-                <a class='btn btn-primary' href={{ route('post.index') }}>Back</a>
+                <a class='btn btn-primary' href="{{ route('post.index') }}">Back</a>
                 <input type='reset' class='btn btn-secondary' value='Reset'/>
                 <input type='submit' class='btn btn-success' value='Submit'/>
             </div>
