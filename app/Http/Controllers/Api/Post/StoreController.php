@@ -5,18 +5,16 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\Post;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Post\StoreRequest;
+use App\Http\Requests\Api\Post\StoreRequest;
 use App\Http\Services\PostService;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Routing\Redirector;
+use App\Http\Resources\Post\PostResource;
 
 class StoreController extends Controller
 {
-    public function __invoke(StoreRequest $request): Application|RedirectResponse|Redirector
+    public function __invoke(StoreRequest $request): PostResource
     {
-        PostService::store($request->validated());
+        $post = PostService::store_api($request->validated());
 
-        return redirect()->route('api.post.index', 201);
+        return new PostResource($post);
     }
 }
