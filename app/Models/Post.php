@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Http\Filters\Filterable;
 
-class Post extends Model
+final class Post extends Model
 {
     use HasFactory;
     use SoftDeletes;

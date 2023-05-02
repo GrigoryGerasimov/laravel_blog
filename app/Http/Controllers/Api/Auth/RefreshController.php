@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use Illuminate\Http\JsonResponse;
 
-class RefreshController extends AuthController
+final class RefreshController extends AuthController
 {
     public function __construct()
     {

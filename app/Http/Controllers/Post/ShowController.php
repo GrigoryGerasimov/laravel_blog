@@ -9,7 +9,7 @@ use App\Models\Post;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\View;
 
-class ShowController extends Controller
+final class ShowController extends Controller
 {
     public function __invoke(Post $post): Application|View
     {

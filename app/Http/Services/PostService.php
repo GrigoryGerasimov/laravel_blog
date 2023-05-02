@@ -8,7 +8,7 @@ use App\Models\{Post, Category, Tag};
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class PostService
+final class PostService
 {
     public static function store(array $requestData): Post
     {

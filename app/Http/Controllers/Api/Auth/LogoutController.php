@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use Illuminate\Http\JsonResponse;
 
-class LogoutController extends AuthController
+final class LogoutController extends AuthController
 {
     public function __construct()
     {

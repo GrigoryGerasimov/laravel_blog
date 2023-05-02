@@ -6,7 +6,7 @@ namespace App\Http\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class PostFilter extends AbstractFilter
+final class PostFilter extends AbstractFilter
 {
     public const TITLE = 'title';
     public const AUTHOR = 'author';

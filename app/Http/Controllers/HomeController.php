@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
 
-class HomeController extends Controller
+final class HomeController extends Controller
 {
     public function __construct()
     {

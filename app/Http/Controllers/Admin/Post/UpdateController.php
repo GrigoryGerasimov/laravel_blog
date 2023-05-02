@@ -10,7 +10,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 
-class UpdateController extends Controller
+final class UpdateController extends Controller
 {
     public function __invoke(Post $post, UpdateRequest $request): Application|RedirectResponse|Redirector
     {

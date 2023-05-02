@@ -8,7 +8,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 
-class RestoreController extends Controller
+final class RestoreController extends Controller
 {
     public function __invoke($postId): Application|RedirectResponse|Redirector
     {

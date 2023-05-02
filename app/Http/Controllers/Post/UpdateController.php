@@ -12,7 +12,7 @@ use Illuminate\Routing\Redirector;
 use App\Http\Requests\Post\UpdateRequest;
 use App\Http\Services\PostService;
 
-class UpdateController extends Controller
+final class UpdateController extends Controller
 {
     public function __invoke(Post $post, UpdateRequest $request): Application|RedirectResponse|Redirector
     {

@@ -11,7 +11,7 @@ use App\Models\Tag;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\View;
 
-class DeleteController extends Controller
+final class DeleteController extends Controller
 {
     public function __invoke(Post $post): Application|View
     {
