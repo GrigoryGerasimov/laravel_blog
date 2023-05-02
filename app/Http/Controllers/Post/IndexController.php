@@ -11,7 +11,7 @@ use App\Models\Post;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\View;
 
-class IndexController extends Controller
+final class IndexController extends Controller
 {
     public function __invoke(FilterRequest $request): Application|View
     {

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FilterRequest extends FormRequest
+final class FilterRequest extends FormRequest
 {
     public function authorize(): bool
     {

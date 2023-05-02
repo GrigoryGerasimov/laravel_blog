@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Api\Auth;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends AuthController
+final class LoginController extends AuthController
 {
     public function __construct()
     {

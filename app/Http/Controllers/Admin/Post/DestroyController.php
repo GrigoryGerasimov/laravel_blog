@@ -8,7 +8,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 
-class DestroyController extends Controller
+final class DestroyController extends Controller
 {
     public function __invoke(Post $post): Application|RedirectResponse|Redirector
     {

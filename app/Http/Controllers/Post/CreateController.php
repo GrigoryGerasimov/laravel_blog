@@ -10,7 +10,7 @@ use App\Models\Tag;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\View;
 
-class CreateController extends Controller
+final class CreateController extends Controller
 {
     public function __invoke(): Application|View
     {

@@ -8,7 +8,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PostResource extends JsonResource
+final class PostResource extends JsonResource
 {
     public function toArray(Request $request): array
     {

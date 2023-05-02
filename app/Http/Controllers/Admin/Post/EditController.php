@@ -7,7 +7,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\View;
 use App\Models\{Category, Tag, Post};
 
-class EditController extends Controller
+final class EditController extends Controller
 {
     public function __invoke(Post $post): Application|View
     {

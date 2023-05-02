@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Requests\Post\FilterRequest;
 use App\Models\Post;
 
-class IndexController extends Controller
+final class IndexController extends Controller
 {
     public function __invoke(?Filterrequest $request): Application|View
     {

@@ -11,7 +11,7 @@ use App\Models\Post;
 use App\Http\Resources\Post\PostResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-class IndexController extends Controller
+final class IndexController extends Controller
 {
     public function __invoke(?FilterRequest $request): AnonymousResourceCollection
     {

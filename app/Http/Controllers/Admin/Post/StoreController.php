@@ -9,7 +9,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 
-class StoreController extends Controller
+final class StoreController extends Controller
 {
     public function __invoke(?StoreRequest $request): Application|RedirectResponse|Redirector
     {

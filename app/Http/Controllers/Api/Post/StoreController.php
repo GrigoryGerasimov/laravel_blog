@@ -9,7 +9,7 @@ use App\Http\Requests\Api\Post\StoreRequest;
 use App\Http\Services\PostService;
 use App\Http\Resources\Post\PostResource;
 
-class StoreController extends Controller
+final class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request): PostResource
     {

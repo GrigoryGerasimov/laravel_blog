@@ -11,7 +11,7 @@ use Illuminate\Routing\Redirector;
 use App\Http\Requests\Post\StoreRequest;
 use App\Http\Services\PostService;
 
-class StoreController extends Controller
+final class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request): Application|RedirectResponse|Redirector
     {

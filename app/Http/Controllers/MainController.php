@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\View;
 
-class MainController extends Controller
+final class MainController extends Controller
 {
     public function index(): Application|View
     {
